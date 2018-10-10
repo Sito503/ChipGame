@@ -5,7 +5,7 @@
 using namespace std;
 
 const int MAX_CHIPS = 100;
-const float MAX_TURN = 0;
+const float MAX_TURN = .5;
 
 int main()
 {
@@ -32,6 +32,7 @@ int main()
     {
     
     chipsinpile = (rand() % MAX_CHIPS) + 1;
+    
     cout<<"This round will start with "<< chipsinpile<<" chips in the pile\n";
     gameover = false;
     while(gameover == false)
@@ -41,6 +42,7 @@ int main()
     {
     maxperturn = (MAX_TURN * chipsinpile);
     if (player1turn)
+    
         {  
         cout<<playername[0]<<" how many chips would you like:\n";
         }
@@ -66,9 +68,9 @@ int main()
     //chipstaken=(rand()% maxperturn) + 1;
     //cout<<"number taken: "<<chipstaken<<endl;
     
-    chipsinpile = chipsinpile + chipstaken;
+    chipsinpile = chipsinpile - chipstaken;
     cout<<"there are "<<chipsinpile<<" left in the pile\n";
-    if (gameover==0)
+    if (chipsinpile==0)
     {
         gameover=true;
         if (player1turn)
